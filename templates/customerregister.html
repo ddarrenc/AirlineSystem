@@ -1,0 +1,64 @@
+{% extends "layouts/base.html" %}
+{% block title %}Customer Registration{% endblock %}
+{% block body %}
+<h1> Customer Registration </h1>
+<div class="container">
+    {% if error %}
+    <div class="alert alert-danger">{{error}}</div>
+    {% elif success %}
+    <div class="alert alert-success">{{success}}</div>
+    {% endif %}
+    <a href="/register">Go back</a>
+    </br>
+    </br>
+    <form action="{{ url_for('custRegisterAuth') }}" method="POST">
+
+        <label for="registerUsernameInput" class="form-label">Email</label>
+        <input type="email" name="email" class="form-control" id="registerUsernameInput"  required>
+
+        <label for="registerPasswordInput" class="form-label">Password</label>
+        <input type="password" name="password" class="form-control" id="registerPasswordInput" required>
+
+        <label for="registerFirstNameInput" class="form-label">First Name</label>
+        <input type="text" name="firstname" class="form-control" id="registerFirstNameInput" required>
+
+        <label for="registerLastNameInput" class="form-label">Last Name</label>
+        <input type="text" name="lastname" class="form-control" id="registerLastNameInput" required>
+
+        <label for="registerBirthDateInput" class="form-label">Date of Birth</label>
+        <input type="date" name="dateofbirth" class="form-control" id="registerBirthDateInput" required>
+
+        <label for="registerPhoneInput" class="form-label">Phone Number</label>
+        <input type="tel" name="phonenum" class="form-control" id="registerPhoneInput" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" 
+                    placeholder="123-456-7890" required>
+
+        <h2> Address Information </h2>
+
+        <label for="registerBuildNumInput" class="form-label">Building Number</label>
+        <input type="text" name="buildnum" class="form-control" id="registerBuildNumInput" required>
+
+        <label for="registerStreetInput" class="form-label">Street Name</label>
+        <input type="text" name="street" class="form-control" id="registerStreetInput" required>
+
+        <label for="registerCityInput" class="form-label">City</label>
+        <input type="text" name="city" class="form-control" id="registerCityInput" required>
+
+        <label for="registerStateInput" class="form-label">State</label>
+        <input type="text" name="state" class="form-control" id="registerStateInput" required>
+
+        <h2> Passport Information </h2>
+
+        <label for="registerPassportNumInput" class="form-label">Passport Number</label>
+        <input type="text" name="passportnum" class="form-control" id="registerPassportNumInput" required>
+
+        <label for="registerPassportExpirationInput" class="form-label">Expiration Date</label>
+        <input type="date" name="passportexpir" class="form-control" id="registerPassportExpirationInput" required>
+
+        <label for="registerPassportCountry" class="form-label">Passport Country</label>
+        <input type="text" name="passportcountry" class="form-control" id="registerPassportCountry" required>
+
+        <br>
+        <button type="submit" class="btn btn-secondary">Submit</button>
+    </form>
+</div>
+{% endblock %}

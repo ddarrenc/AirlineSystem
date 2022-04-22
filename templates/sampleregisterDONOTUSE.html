@@ -1,0 +1,24 @@
+{% extends "layouts/base.html" %}
+{% block title %}Registeration{% endblock %}
+{% block body %}
+<div class="container">
+    {% if error %}
+    <div class="alert alert-danger">{{error}}</div>
+    {% elif success %}
+    <div class="alert alert-success">{{success}}</div>
+    {% endif %}
+
+    <form action="{{ url_for('register') }}" method="POST">
+        <label for="registerUsernameInput" class="form-label">Username</label>
+
+        <input type="email" placeholder="Email" class="form-control" id="registerUsernameInput" name="email" required>
+        <label for="registerPasswordInput" class="form-label">Password</label>
+        <input type="password" name="password" class="form-control" id="registerPasswordInput" required>
+        <button type="submit" class="btn btn-secondary">Submit</button>
+    </form>
+    {% for user in allusers %}
+        <h1>{{user.email}}</h1>
+    {% endfor %}
+</div>
+{% endblock %}
+

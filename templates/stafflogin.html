@@ -1,0 +1,24 @@
+{% extends "layouts/base.html" %}
+{% block title %}Staff Login{% endblock %}
+{% block body %}
+<h1> Staff Login Portal </h1>
+<div class="container">
+    {% if error %}
+    <div class="alert alert-danger">{{error}}</div>
+    {% elif success %}
+    <div class="alert alert-success">{{success}}</div>
+    {% endif %}
+
+    <form action="{{ url_for('staffLoginAuth') }}" method="POST">
+        <label for="loginUsernameInput" class="form-label">Username</label>
+        <input type="text" class="form-control" id="loginUsernameInput" name="username" required>
+        <label for="loginPasswordInput" class="form-label">Password</label>
+        <input type="password" class="form-control" id="loginPasswordInput" name="password" required>
+        <br>
+        <button type="submit" class="btn btn-secondary">Submit</button>
+    </form>
+    {% for user in allusers %}
+        <h1>{{user.email}}</h1>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "layouts/base.html" %}
+{% block title %}Staff Registration{% endblock %}
+{% block body %}
+<h1> Customer Registration </h1>
+<div class="container">
+    {% if error %}
+    <div class="alert alert-danger">{{error}}</div>
+    {% elif success %}
+    <div class="alert alert-success">{{success}}</div>
+    {% endif %}
+    <a href="/register">Go back</a>
+    </br>
+    </br>
+    <form action="{{ url_for('staffRegisterAuth') }}" method="POST">
+
+        <label for="registerUsernameInput" class="form-label">Username</label>
+        <input type="text" name="username" class="form-control" id="registerUsernameInput"  required>
+
+        <label for="registerPasswordInput" class="form-label">Password</label>
+        <input type="password" name="password" class="form-control" id="registerPasswordInput" required>
+
+        <label for="registerAirlineInput" class="form-label">Name of Airline</label>
+        <input type="text" name="airline" class="form-control" id="registerAirlineInput" style="text-transform:capitalize" required>
+
+        <label for="registerFirstNameInput" class="form-label">First Name</label>
+        <input type="text" name="firstname" class="form-control" id="registerFirstNameInput" required>
+
+        <label for="registerLastNameInput" class="form-label">Last Name</label>
+        <input type="text" name="lastname" class="form-control" id="registerLastNameInput" required>
+
+        <label for="registerBirthDateInput" class="form-label">Date of Birth</label>
+        <input type="date" name="dateofbirth" class="form-control" id="registerBirthDateInput" required>
+
+        <br>
+        <button type="submit" class="btn btn-secondary">Submit</button>
+    </form>
+</div>
+{% endblock %}
