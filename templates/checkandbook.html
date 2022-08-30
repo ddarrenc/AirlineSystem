@@ -1,0 +1,72 @@
+{% extends "layouts/base.html" %}
+{% block title %} Customer Homepage {% endblock %}
+{% block body %}
+</br>
+<h5>Check Possible Future Flights!</h5>
+<form action="/checkFlight" method="POST" id="form2">
+    <input type="text" name = "source" placeholder="source" required/>
+	<br>
+	<input type="text" name = "destination" placeholder="destination" required/>
+	<br>
+	<br>
+	<label for="registerBirthDateInput" class="form-label"><strong>Departure Date</strong></label>
+	<input type="date" name = "departure" placeholder="departure" required/><br>
+	<label for="registerBirthDateInput" class="form-label"><strong>Return Date</strong></label> 
+	<input type="date" name = "return_date" placeholder="return_date"/> 
+	<br>
+	<input type="submit" value = submit  form="form2"/>
+	<br>
+
+	{% if error2 %}
+		<p class="error2"><strong>Error:</strong> {{error2}}</p>
+	{% endif %}
+
+	{% if result2 %}
+		<p class="result2"><strong>Depature flights:</strong> {{result2}}</p>
+	{% endif %}
+
+	{% if result3 %}
+		<p class="result3"><strong>Return flights:</strong> {{result3}}</p>
+	{% endif %}
+</form>
+
+<h5>Book Your Flights Here!</h5>
+<form action="/bookTickets" method="POST" id="form3">
+    <input type="text" name = "airline" placeholder="airline" required/> <br>
+	<input type="text" name = "flight_number" placeholder="flight_number" required/><br>
+	<label for="registerBirthDateInput" class="form-label">Departure time</label>
+	<input type="datetime-local" name = "departure" placeholder="departure" required/><br>
+
+	<h5>Choose Your Card Type</h5>
+	<select name="cardType" id="cardType">
+		<option value="Credit">Credit</option>
+		<option value="Debit">Debit</option>
+	</select>
+	<br>
+	<input type="text" name = "cardNumber" placeholder="cardNumber" required/> 
+	<br>
+	<input type="text" name = "cardHolderFirstName" placeholder="cardHolderFirstName" required/>
+	<br>
+	<input type="text" name = "cardHolderLastName" placeholder="cardHolderLastName" required/> 
+	<br>
+	<br>
+	<h5>Choose Your Travel Class</h5>
+	<select name="TravelClass" id="TravelClass">
+		<option value="First">First</option>
+		<option value="Business">Business</option>
+		<option value="Economy">Economy</option>
+	</select>
+	<br>
+	Expiration Date <input type="date" name = "expirationDate" placeholder="expirationDate" required/>
+	<br>
+	<input type="submit" value = submit  form="form3"/><br>
+
+	{% if result4 %}
+		<p class="result4"><strong></strong> {{result4}}</p>
+	{% endif %}
+</form>
+
+<br>
+
+<a href="/customerhome">back
+{% endblock body %}

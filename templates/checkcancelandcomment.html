@@ -1,0 +1,42 @@
+{% extends "layouts/base.html" %}
+{% block title %} Customer Homepage {% endblock %}
+{% block body %}
+<form action="/checkownAuth" method="POST" id="form1">
+    <input type="submit" value = "Check My Flight" form="form1"/>
+</form>
+{% if error %}
+		<p class="error"><strong></strong> {{error}}</p>
+{% endif %}
+
+{% if result %}
+		<p class="result"><strong>Depature flights:</strong> {{result}}</p>
+{% endif %}
+
+<h5>Cancel your flight here :(</h5>
+<form action="/cancelTickets" method="POST" id="form4">
+    <input type="text" name = "ticketID" placeholder="ticketID" required/> </br>
+	<input type="submit" value = submit  form="form4"/></br>
+	{% if result5 %}
+		<p class="result5"><strong></strong> {{result5}}</p>
+	{% endif %}
+</form>
+
+
+<h5>Drop your comment here :)</h5>
+<form action="/rating" method="POST" id="form5">
+	<input type="text" name = "ticketID" placeholder="ticketID" required/> </br>
+	<h7>Give Your Rate Here</h7>
+	<select name="rate" id="rate">
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+	</select> </br>
+    <input type="text" name = "comment" placeholder="comment" required/> </br>
+	<input type="submit" value = submit  form="form5"/></br>
+	{% if result6 %}
+		<p class="result6"><strong></strong> {{result6}}</p>
+	{% endif %}
+</form>
+</br>
+<a href="/customerhome">back
+{% endblock body %}

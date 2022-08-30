@@ -1,0 +1,44 @@
+{% extends "layouts/base.html" %}
+{% block title %} Customer Homepage {% endblock %}
+{% block body %}
+<form action="/track" method="POST" id="form1">
+    <input type="submit" value = "Check your spending in past six months" form="form1"/>
+</form>
+{% if result %}
+<p class="result"><strong>In past 6 months you have spent </strong> {{result}}</p>
+{% endif %}
+
+
+</br>
+<h8>Or Checking Using Your own range</h8>
+<form action="/track2" method="POST" id="form2">
+    <label for="registerBirthDateInput" class="form-label">start range</label></br>
+	<input type="date" name = "start_range" placeholder="start_range" required/></br>
+	<label for="registerBirthDateInput" class="form-label">end range</label></br>
+    <input type="date" name = "end_range" placeholder="end_range"/> </br>
+    <input type="submit" value = "submits" form="form2"/>
+</form>
+
+{% if result2 %}
+<p class="result2"><strong>Within this range you have spent </strong> {{result2}}</p>
+{% endif %}
+
+{% if result3 %}
+<table>
+    <tr>
+        <th>Ticket Id</th>
+        <th>Purchase date</th>
+        <th>Sold Price</th>
+    </tr>
+    {% for row in result3 %}
+    <tr>
+        <td>{{ row["ticket_id"] }}</a></td>
+        <td>{{ row["purchase_date_time"]}}</td>
+        <td>{{ row["sold_price"]}}</td>
+    </tr>
+    {% endfor %}
+</table>    
+{% endif %}
+
+<a href="/customerhome">back
+    {% endblock body %}
