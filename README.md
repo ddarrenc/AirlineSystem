@@ -26,6 +26,3 @@ Create an account as a customer or airline staff member to do the following:
 - View flight ratings
 - View revenue based on tickets sold
 - View most frequented customer destinations
-
-## Documentation
-See additional documentation in folder.
